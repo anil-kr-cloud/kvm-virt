@@ -1,6 +1,8 @@
 Instllation:
 first check that virtualization is enable on hardware level using below command
+
 cat /proc/cpuinfo | grep vmx
+
 If not enable reboot system and enable hardware virtualization from the BIOS seetions.
 
 Packages:
