@@ -79,7 +79,7 @@ we can define ip address range/subnet for vms. add mac and ip address inside the
 
 19) Migrate the vm form one server to other server. mention path same as parent machine ( /var/lib/libvirt/images) in the other host. After complete migration start the vm and configure the ip as per the new host.
 
-# virsh migrate --live vm1 qemu+ssh://<remote-host-ip>/var/lib/libvirt/images
+# virsh migrate --live vm1 qemu+ssh://hostip/var/lib/libvirt/images
 
 
 20) watch logs for all activities (migration etc.). Every operaiton has log saved so that in future we can chek what is happened at partiuclar time. 
