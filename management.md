@@ -48,3 +48,40 @@ memory is used form the irtual ram on the disk/swap. memory management is so goo
 
 # virsh edit vm1
 
+13) display xml configuration of the virtual machine.
+
+# virsh dumpxml vm1
+
+14) check the network availble for Virtual Machine
+
+# virsh net-list
+
+15) Define/update network 
+
+# virsh net-edit <networkname>
+
+we can define ip address range/subnet for vms. add mac and ip address inside the <host mac> tag under the <dhcp> tag
+
+16) destory/delte the netowrk
+
+# virsh net-destory default
+
+
+17) create Backup of the vm. Copy the vm disk (i.e .img file) to other location as 
+
+# dd if=/var/lib/libvirt/images/vm1.img of =/home/admin/backup/vm1.img
+
+18) Take backup in the compressed form
+
+# dd if=/var/lib/libvirt/images/vm1.img | gzip -9 > /home/admin/backup/vm1.img.gz
+
+# dd -if=/dev/vg1/lvm___name /home/admin/backup/vm1.img
+
+19) Migrate the vm form one server to other server. mention path same as parent machine ( /var/lib/libvirt/images) in the other host. After complete migration start the vm and configure the ip as per the new host.
+
+# virsh migrate --live vm1 qemu+ssh://<remote-host-ip>/<path-as-in-parent-host> 
+
+
+20) watch logs for all activities (migration etc.). Every operaiton has log saved so that in future we can chek what is happened at partiuclar time. 
+
+# /var/log/libvirt/libvirtd.log
